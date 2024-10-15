@@ -1,8 +1,8 @@
 {
+  # config,
+  # inputs,
+  # lib,
   pkgs,
-  lib,
-  config,
-  inputs,
   ...
 }: {
   # https://devenv.sh/basics/
@@ -36,8 +36,9 @@
   # https://devenv.sh/tasks/
   tasks = {
     "project:setup" = {
-      exec = "pnpm install";
       before = ["devenv:enterShell"];
+      exec = "pnpm install";
+      status = "[ -d \"node_modules/\" ]";
     };
   };
 
